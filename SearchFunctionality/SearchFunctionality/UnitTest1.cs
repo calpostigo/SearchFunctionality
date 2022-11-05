@@ -54,6 +54,14 @@ namespace SearchFunctionality {
 
             collection.Should().Equal(new[] { "Paris" });
         }
+        [TestCase ("Hong")]
+        [TestCase("Skopj")]
+        public void return_city_when_search_begin_for_any_quantity_of(string charactersToSearch) {
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().Equal(new[] { "Hong Kong" });
+        }
     }
 
     public abstract class Cities {
