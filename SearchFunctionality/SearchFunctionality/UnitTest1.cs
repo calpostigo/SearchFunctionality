@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System.Net.WebSockets;
 using FluentAssertions;
 
 namespace SearchFunctionality {
@@ -11,9 +10,9 @@ namespace SearchFunctionality {
         [Test]
         public void return_empty_array_when_search_fewer_than_two_characters() {
 
-            var result = Cities.SearchCities(string.Empty);
+            var collection = Cities.SearchCities(string.Empty);
 
-            result.Should().BeNullOrEmpty();
+            collection.Should().BeNullOrEmpty();
         }
     }
 
