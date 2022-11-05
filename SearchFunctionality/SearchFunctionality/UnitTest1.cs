@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using FluentAssertions;
 using System;
+using System.Collections.Generic;
 
 namespace SearchFunctionality {
     public class SearchFuntionalityShould {
@@ -75,6 +76,16 @@ namespace SearchFunctionality {
 
             collection.Should().BeSubsetOf(Cities.cities)
                 .And.HaveCount(1);
+        }
+
+        [Test]
+        public void return_all_the_cities_when_search_is_an_asterichs() {
+
+            var charactersToSearch = "*";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().Equal(Cities.cities);
         }
     }
 
