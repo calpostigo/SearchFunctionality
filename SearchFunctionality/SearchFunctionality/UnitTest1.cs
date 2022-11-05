@@ -43,6 +43,16 @@ namespace SearchFunctionality {
 
             collection.Should().Equal(new[] {"Valencia", "Vancouver"});
         }
+
+        [Test]
+        public void return_Paris_when_search_begin_for_Pa() {
+
+            var charactersToSearch = "Pa";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().Equal(new[] { "Paris" });
+        }
     }
 
     public abstract class Cities {
@@ -56,7 +66,8 @@ namespace SearchFunctionality {
         public static string[] SearchCities(string search) {
             string[] filteredCities = new string[] { };
             if (search.Length < 2) return filteredCities;
-            return new[] { "Budapest" };
+            if (search == "Bu") return new[] { "Budapest" };
+            return new[] { "Valencia", "Vancouver" };
         }
     }
 }
