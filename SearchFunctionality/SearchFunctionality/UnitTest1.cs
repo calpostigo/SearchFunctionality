@@ -23,6 +23,16 @@ namespace SearchFunctionality {
 
             collection.Should().BeNullOrEmpty();
         }
+
+        [Test]
+        public void return_cities_array_when_search_equals_to_two_characters() {
+
+            var charactersToSearch = "Va";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().BeNullOrEmpty();
+        }
     }
 
     public abstract class Cities {
