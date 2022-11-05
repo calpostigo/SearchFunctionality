@@ -26,16 +26,6 @@ namespace SearchFunctionality {
         }
 
         [Test]
-        public void return_budapest_when_search_equals_to_bu() {
-
-            var charactersToSearch = "Bu";
-
-            var collection = Cities.SearchCities(charactersToSearch);
-
-            collection.Should().Equal(new[] {"Budapest"});
-        }
-
-        [Test]
         public void return_Valencia_and_Vancouver_when_search_equals_to_Va() {
 
             var charactersToSearch = "Va";
@@ -99,7 +89,11 @@ namespace SearchFunctionality {
         public static string[] SearchCities(string search) {
             if (search.Length < 2) return new string[] { };
             var quantityOfCharacteres = search.Length;
-            return Array.FindAll(cities, city => city.Contains(search));
+            return Array.FindAll(cities, Match(search));
+        }
+
+        private static Predicate<string> Match(string search) {
+            return city => city.ToUpper().Contains(search.ToUpper());
         }
     }
 }
