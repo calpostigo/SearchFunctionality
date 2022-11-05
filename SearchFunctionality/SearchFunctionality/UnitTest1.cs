@@ -10,7 +10,16 @@ namespace SearchFunctionality {
         [Test]
         public void return_empty_array_when_search_fewer_than_two_characters() {
 
-            var collection = Cities.SearchCities(string.Empty);
+            var result = Cities.SearchCities(string.Empty);
+
+            result.Should().BeNullOrEmpty();
+        }
+
+        [TestCase("V")]
+        [TestCase("Va")]
+        public void return_empty_array_when_search_equals_to_one_or_two_character(string characters) {
+
+            var collection = Cities.SearchCities(characters);
 
             collection.Should().BeNullOrEmpty();
         }
