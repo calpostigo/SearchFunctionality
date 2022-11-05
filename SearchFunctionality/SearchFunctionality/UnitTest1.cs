@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using FluentAssertions;
+using System;
 
 namespace SearchFunctionality {
     public class SearchFuntionalityShould {
@@ -56,7 +57,7 @@ namespace SearchFunctionality {
     }
 
     public abstract class Cities {
-        private string[] cities = new string[] {
+        internal static string[] cities = new string[] {
             "Paris","Budapest","Skopje",
             "Rotterdam","Valencia","Vancouver",
             "Amsterdam","Vienna","Sydney",
@@ -64,10 +65,8 @@ namespace SearchFunctionality {
             ,"Hong Kong","Dubai","Rome","Istanbul"
         };
         public static string[] SearchCities(string search) {
-            string[] filteredCities = new string[] { };
-            if (search.Length < 2) return filteredCities;
-            if (search == "Bu") return new[] { "Budapest" };
-            return new[] { "Valencia", "Vancouver" };
+            if (search.Length < 2) return new string[] { };
+            return Array.FindAll(cities, city => city.Substring(0,2).Equals(search));
         }
     }
 }
