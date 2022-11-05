@@ -1,0 +1,2 @@
+# SearchFunctionality
+Kata SearchFunctionality
