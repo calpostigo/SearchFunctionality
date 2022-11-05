@@ -88,7 +88,7 @@ namespace SearchFunctionality {
         public static string[] SearchCities(string search) {
             if (search.Length < 2) return new string[] { };
             var quantityOfCharacteres = search.Length;
-            return Array.FindAll(cities, city => city.Substring(0, quantityOfCharacteres).Equals(search));
+            return Array.FindAll(cities, city => city.Contains(search));
         }
     }
 }
