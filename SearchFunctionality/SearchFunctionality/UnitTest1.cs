@@ -62,7 +62,18 @@ namespace SearchFunctionality {
 
             var collection = Cities.SearchCities(charactersToSearch);
 
-            collection.Should().BeSubsetOf(Cities.cities);
+            collection.Should().BeSubsetOf(Cities.cities); 
+        }
+
+        [Test]
+        public void return_city_array_when_search_contain_any_characters () {
+
+            var charactersToSearch = "opj";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().BeSubsetOf(Cities.cities)
+                .And.HaveCount(1);
         }
     }
 
