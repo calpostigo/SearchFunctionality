@@ -27,11 +27,11 @@ namespace SearchFunctionality {
         [Test]
         public void return_cities_array_when_search_equals_to_two_characters() {
 
-            var charactersToSearch = "Va";
+            var charactersToSearch = "Bu";
 
             var collection = Cities.SearchCities(charactersToSearch);
 
-            collection.Should().BeNullOrEmpty();
+            collection.Should().Equal(new[] {"Budapest"});
         }
     }
 
