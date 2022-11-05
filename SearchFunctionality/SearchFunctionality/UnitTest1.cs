@@ -56,11 +56,13 @@ namespace SearchFunctionality {
         }
 
         [TestCase ("Hong")]
+        [TestCase("Sko")]
+        [TestCase("Rome")]
         public void return_city_when_search_begin_for_any_quantity_of(string charactersToSearch) {
 
             var collection = Cities.SearchCities(charactersToSearch);
 
-            collection.Should().Equal(new[] {"Hong Kong"});
+            collection.Should().BeSubsetOf(Cities.cities);
         }
     }
 
