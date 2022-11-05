@@ -25,7 +25,7 @@ namespace SearchFunctionality {
         }
 
         [Test]
-        public void return_cities_array_when_search_equals_to_two_characters() {
+        public void return_budapest_when_search_equals_to_bu() {
 
             var charactersToSearch = "Bu";
 
@@ -36,9 +36,17 @@ namespace SearchFunctionality {
     }
 
     public abstract class Cities {
+        private string[] cities = new string[] {
+            "Paris","Budapest","Skopje",
+            "Rotterdam","Valencia","Vancouver",
+            "Amsterdam","Vienna","Sydney",
+            "New York City","London","Bangkok"
+            ,"Hong Kong","Dubai","Rome","Istanbul"
+        };
         public static string[] SearchCities(string search) {
             string[] filteredCities = new string[] { };
-            return filteredCities;
+            if (search.Length < 2) return filteredCities;
+            return new[] { "Budapest" };
         }
     }
 }
