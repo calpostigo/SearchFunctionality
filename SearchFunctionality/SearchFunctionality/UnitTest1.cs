@@ -98,8 +98,8 @@ namespace SearchFunctionality {
             ,"Hong Kong","Dubai","Rome","Istanbul"
         };
         public static string[] SearchCities(string search) {
+            if (search == "*") return cities;
             if (search.Length < 2) return new string[] { };
-            var quantityOfCharacteres = search.Length;
             return Array.FindAll(cities, Match(search));
         }
 
