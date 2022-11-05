@@ -16,8 +16,8 @@ namespace SearchFunctionality {
         }
 
         [TestCase("V")]
-        [TestCase("Va")]
-        public void return_empty_array_when_search_equals_to_one_or_two_character(string characters) {
+        [TestCase("P")]
+        public void return_empty_array_when_search_equals_to_one_character(string characters) {
 
             var collection = Cities.SearchCities(characters);
 
