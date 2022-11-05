@@ -9,7 +9,7 @@ namespace SearchFunctionality {
         }
 
         [Test]
-        public void return_string_empty_when_search_fewer_than_two_characters() {
+        public void return_empty_array_when_search_fewer_than_two_characters() {
 
             var result = Cities.SearchCities(string.Empty);
 
@@ -19,7 +19,8 @@ namespace SearchFunctionality {
 
     public abstract class Cities {
         public static string[] SearchCities(string search) {
-            throw new System.NotImplementedException();
+            string[] filteredCities = new string[] { };
+            return filteredCities;
         }
     }
 }
