@@ -33,6 +33,16 @@ namespace SearchFunctionality {
 
             collection.Should().Equal(new[] {"Budapest"});
         }
+
+        [Test]
+        public void return_Valencia_and_Vancouver_when_search_equals_to_Va() {
+
+            var charactersToSearch = "Va";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().Equal(new[] {"Valencia", "Vancouver"});
+        }
     }
 
     public abstract class Cities {
