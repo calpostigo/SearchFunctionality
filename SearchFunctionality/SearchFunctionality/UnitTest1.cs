@@ -75,6 +75,17 @@ namespace SearchFunctionality {
             collection.Should().BeSubsetOf(Cities.cities)
                 .And.HaveCount(1);
         }
+
+        [Test]
+        public void return_city_array_when_search_contain_any_characters_and_case_insensitive () {
+
+            var charactersToSearch = "NCOUVE";
+
+            var collection = Cities.SearchCities(charactersToSearch);
+
+            collection.Should().BeSubsetOf(Cities.cities)
+                .And.HaveCount(1);
+        }
     }
 
     public abstract class Cities {
